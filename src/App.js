@@ -6,6 +6,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Jobs from './page/Jobs';
 import Login from './page/Login';
 import Detail from './page/Detail'
+import FourOhFourPage from './page/FourOhFourPage'
 
 
 function App() {
@@ -24,9 +25,10 @@ function App() {
       <Switch>
         <ProtectedRoute path="/jobs/:id" render={(props)=> <Detail{...props}/>}/>
         <Route path="/jobs/:id" component={Detail}/>
-        <Route path="/jobs" component={Jobs}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/" component={Jobs}/>
+        <Route exact path="/jobs" component={Jobs}/>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/" component={Jobs}/>
+        <Route path="*" component={FourOhFourPage} />
       </Switch>
     </div>
   );
