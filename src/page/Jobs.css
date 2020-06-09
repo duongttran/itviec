@@ -1,0 +1,15 @@
+.hot-job {
+    background-color: orangered;
+    color: white;
+    padding: 10px;
+  
+}
+
+.job-item {
+    display: flex;
+    padding: 25px;
+    border: 1px solid black;
+    justify-content: space-between;
+    margin: 10px 0;
+    align-items: center;
+}
