@@ -14,7 +14,7 @@ export default function Detail() {
     let [result, setResult] = useState(null)
 
     const getDetailData = async () => {
-        let url = `http://localhost:3001/jobs/${id}`
+        let url = `https://my-json-server.typicode.com/duongttran/itviec/jobs/${id}`
         let data = await fetch(url)
         let result = await data.json()
         console.log("this is result", result);
