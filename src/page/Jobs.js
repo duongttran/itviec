@@ -122,7 +122,7 @@ export default function Job() {
                                         <div className="col-md-9">
                                             <div className="left-side"><img src={item.img}></img>
                                                 <h2><Link to={`jobs/${idx}`}>{item.title}</Link></h2>
-                                                <h4>{item.salary}</h4>
+                                                <h4><i class="fas fa-money-bill-wave"></i> {item.salary}</h4>
                                                 <ul>
                                                     {item.benefits.map(one => {
                                                         return (<li>{one}</li>)
