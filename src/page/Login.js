@@ -42,7 +42,7 @@ export default function Login() {
         
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" ref={passwordRef}/>
+                            <Form.Control type="password" placeholder="Password" ref={passwordRef} />
                         </Form.Group>
         
                         <Button variant="primary" onClick={login}>

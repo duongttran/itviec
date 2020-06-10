@@ -45,19 +45,22 @@ export default function Detail() {
     return (
         <Container>
             <Row>
-                <div>
+                <div className="col-md-12">
                     {/* <h1>This is detail</h1>
                     <h2>Your ID is {id}</h2> */}
+                       
                     <img src={result.img}></img>
                     <h3>{result.title}</h3>
-                    {result.tags.map(item => {
-                        return <span className="job-tag">{item}</span>
-                    })}
+                    <p>
+                        {result.tags.map(item => {
+                            return <span className="job-tag">{item}</span>
+                        })}
+                    </p>
                     
                     
                     
                     <p>Salary: {result.salary}</p>
-                    <p>Location: {result.city} District {result.district}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> {result.city} District {result.district}</p>
                     <p>Posted on: <Moment fromNow>{result.time}</Moment></p>
         
                     <h3>Benefits</h3>
@@ -69,7 +72,7 @@ export default function Detail() {
                     <h3>Description</h3>
                     <p>{result.description}</p>
                     <Button variant="danger" onClick={()=> applyJob()}>Apply</Button>
-                    <Button variant="danger" onClick={()=> returnJobs()}>Return to Job Board</Button>
+                    <Button variant="outline-danger" onClick={()=> returnJobs()}>Return to Job Board</Button>
                 </div>
             </Row>
         </Container>
