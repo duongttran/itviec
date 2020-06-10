@@ -11,6 +11,8 @@ import './Jobs.css'
 
 import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { useHistory, useLocation } from "react-router-dom";
+import {useDispatch, useSelector} from 'react-redux'
+
 
 
 const QUERYSTR_PREFIX = "q";
@@ -24,11 +26,13 @@ function useQuery() {
 export default function Job() {
     let query = useQuery();
     query.get(QUERYSTR_PREFIX)
-
+    let dispatch = useDispatch();
     let history = useHistory();
     let [result, setResult] = useState([])
     let [keyword, setKeyword] = useState(query.get(QUERYSTR_PREFIX))
     let [originalList, setOriginalList] = useState(null)
+
+    let user = useSelector((state) => state.user);
     //let tempArray = []
 
     const getDetailData = async () => {
@@ -47,6 +51,10 @@ export default function Job() {
     }
     console.log(result, "hbdhfvhsdfhsdfvdhs")
 
+    const logout = (e) => {
+        dispatch({ type: "LOGOUT" });
+        history.push(`/login`)
+    }
     const searchByKeyword = (e) => {
 
         if (e) {
@@ -100,9 +108,11 @@ export default function Job() {
                                     <Form inline onSubmit={(e) => searchByKeyword(e)}>
                                         <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => setKeyword(e.target.value)} />
                                         <Button variant="outline-success" type="submit">Search</Button>
+                                        <Button variant="outline-success" className="logout" onClick={()=> logout()}>Logout</Button>
                                     </Form>
                                 </Navbar.Collapse>
                             </Navbar>
+                            <h1>Hello, {user.email}</h1>
                             <h1 className="text-center">{result.length} IT jobs in Vietnam for you</h1>
 
                             {result.map((item, idx) => {

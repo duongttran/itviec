@@ -7,10 +7,11 @@ import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Moment from 'react-moment';
+import { useHistory, useLocation } from "react-router-dom";
 
 export default function Detail() {
     const { id } = useParams();
-
+    let history = useHistory();
     let [result, setResult] = useState(null)
 
     const getDetailData = async () => {
@@ -21,6 +22,17 @@ export default function Detail() {
         setResult(result)
 
     }
+
+    const returnJobs = () => {
+        history.push(`/jobs`)
+    }
+    
+    const applyJob = () => {
+        alert("Thanks for applying for this job! We'll contact you soon!")
+        history.push(`/jobs`)
+    }
+
+  
 
     useEffect(() => {
         getDetailData()
@@ -54,7 +66,8 @@ export default function Detail() {
             </ul>
             <h3>Description</h3>
             <p>{result.description}</p>
-            <Button variant="danger">Apply</Button>
+            <Button variant="danger" onClick={()=> applyJob()}>Apply</Button>
+            <Button variant="danger" onClick={()=> returnJobs()}>Return to Job Board</Button>
         </div>
     )
 }

@@ -11,6 +11,10 @@ function reducer(state = initialstate, action) {
         state.user = action.payload
         state.user.isAuthenticated = true;
     } 
+
+    if (action.type === 'LOGOUT') {
+        state.user.isAuthenticated = false;
+    } 
     return state
 }
 

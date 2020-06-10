@@ -29,7 +29,7 @@ export default function Login() {
 
     return (
         <Container>
-            <h1>{user.email}</h1>
+        
             <Row>
                 <div className="col-md-12">
                     <h1>Login</h1>
