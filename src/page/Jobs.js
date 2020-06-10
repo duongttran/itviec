@@ -83,19 +83,19 @@ export default function Job() {
 
                         <div className="col-md-12">
                             <Navbar bg="light" expand="lg">
-                                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                                <Navbar.Brand href="#home">Nhieu IT Viec</Navbar.Brand>
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="mr-auto">
-                                        <Nav.Link href="#home">Home</Nav.Link>
-                                        <Nav.Link href="#link">Link</Nav.Link>
-                                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                                        {/* <Nav.Link href="#home">Home</Nav.Link>
+                                        <Nav.Link href="#link">Link</Nav.Link> */}
+                                        {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                                             <NavDropdown.Divider />
                                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                        </NavDropdown>
+                                        </NavDropdown> */}
                                     </Nav>
                                     <Form inline onSubmit={(e) => searchByKeyword(e)}>
                                         <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={(e) => setKeyword(e.target.value)} />
@@ -110,7 +110,7 @@ export default function Job() {
                                     <div className="job-item">
 
                                         <div className="col-md-9">
-                                            <div className="left-side">
+                                            <div className="left-side"><img src={item.img}></img>
                                                 <h2><Link to={`jobs/${idx}`}>{item.title}</Link></h2>
                                                 <h4>{item.salary}</h4>
                                                 <ul>

@@ -32,7 +32,7 @@ export default function Login() {
             <h1>{user.email}</h1>
             <Row>
                 <div className="col-md-12">
-                    <h1>Login page</h1>
+                    <h1>Login</h1>
                     <Form>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>

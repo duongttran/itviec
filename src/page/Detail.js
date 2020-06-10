@@ -32,13 +32,16 @@ export default function Detail() {
     }
     return (
         <div>
-            <h1>This is detail</h1>
-            <h2>Your ID is {id}</h2>
+            {/* <h1>This is detail</h1>
+            <h2>Your ID is {id}</h2> */}
+            <img src={result.img}></img>
             <h3>{result.title}</h3>
             {result.tags.map(item => {
                 return <span className="job-tag">{item}</span>
             })}
-            {result.img}
+            
+            
+            
             <p>Salary: {result.salary}</p>
             <p>Location: {result.city} District {result.district}</p>
             <p>Posted on: <Moment fromNow>{result.time}</Moment></p>
