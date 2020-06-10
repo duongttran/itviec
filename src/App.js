@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
 
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -9,25 +9,27 @@ import Detail from './page/Detail'
 import FourOhFourPage from './page/FourOhFourPage'
 
 
+
+
 function App() {
-  let [user, setUser] = useState(true)
+  let user = useSelector(state => state.user)
 
   const ProtectedRoute = (props) => {
-    if (user === true) {
+    if (user.isAuthenticated === true) {
       return <Route {...props} />
     } else {
-      return <Redirect to="/login"/>;
+      return <Redirect to="/login" />;
     }
-
   }
+  
   return (
     <div>
       <Switch>
-        <ProtectedRoute path="/jobs/:id" render={(props)=> <Detail{...props}/>}/>
-        <Route path="/jobs/:id" component={Detail}/>
-        <Route exact path="/jobs" component={Jobs}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/" component={Jobs}/>
+        <ProtectedRoute exact path="/jobs" render={(props) => <Jobs{...props} />} />
+        <Route exact path="/login" component={Login} />
+        <ProtectedRoute exact path="/" render={(props) => <Jobs{...props} />} />
+        <ProtectedRoute path="/jobs/:id" render={(props) => <Detail{...props} />} />
+        
         <Route path="*" component={FourOhFourPage} />
       </Switch>
     </div>
